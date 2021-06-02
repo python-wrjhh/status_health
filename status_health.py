@@ -47,6 +47,6 @@ procesos=get_num_proc(com1="ps",com2="-ef")
 print("Nombre de Host:", host[0])
 print("Memoria Disponible en el Sistema =", memory[9])
 print("CPUs =", cpu[0]) ##--> pero ese es un string! Debere pasarlo a int?
-print("Load Average: ", load_avg[7])
+print("Load Average: ", load_avg[8])
 print("Esptado /var: Usado :", space[9], "Disponible: ", space[10])
 print("Procesos corriendo actualimente:", procesos)
