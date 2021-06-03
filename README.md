@@ -45,8 +45,12 @@ Si tengo 2 CPUs, y el load average es igual a **2.4** eso deberia ser una alerta
 Opcional:
 - Dejar el script corriendo en crontab.
 
+## Changelog
+- Se agrega un ejemplo de como usar un pipe con subprocess.
+
 
 ## Referencias, guias, etc
 - [Mandar mails con smtp](https://realpython.com/python-send-email/)
 - [Load average](https://www.flopy.es/como-interpretar-correctamente-la-carga-de-la-cpu-load-average-en-equipos-linux/)
 - [Crontab](https://en.wikipedia.org/wiki/Cron)
+- [Pipe](https://security.openstack.org/guidelines/dg_avoid-shell-true.html)
