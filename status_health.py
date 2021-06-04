@@ -5,7 +5,7 @@
 #4) Cantidad de CPU
 #5) Load Average mas inmediato.
 
-import subprocess
+import subprocess, os
 #funcion que utilizare para obterner el memory space, y la cant de cpu, que me devuelve como resultados una lista
 def get_data(com1, com2):
     data_temp = subprocess.run([com1,com2], capture_output=True, encoding='utf-8')
@@ -31,9 +31,11 @@ def get_num_proc(com1,com2):
     procesos_temp = len(cant_proc.stdout.splitlines())
     return procesos_temp
 
-
+#defino variables de entorno
+os.environ['MONIT_MEM_LIMIT']='10'
+os.environ['MONIT_DISK_SPACE']='80'
 #Calculo la memoria
-memory=get_data(com1="free",com2="-thm")
+memory=get_data(com1="free",com2="-t")
 #calculo de CPU
 cpu=get_data(com1="getconf",com2="_NPROCESSORS_ONLN")
 #Nombre de host
@@ -45,8 +47,19 @@ space=get_space(com1="df",com2="-h",com3="/var")
 procesos=get_num_proc(com1="ps",com2="-ef")
 
 print("Nombre de Host:", host[0])
-print("Memoria Disponible en el Sistema =", memory[9])
+print("Memoria Disponible en el Sistema =", memory[9]) 
+#print(type(memory[9]))
 print("CPUs =", cpu[0]) ##--> pero ese es un string! Debere pasarlo a int?
 print("Load Average: ", load_avg[8])
-print("Esptado /var: Usado :", space[9], "Disponible: ", space[10])
+print("Estado /var: Usado :", space[9], "Disponible: ", space[10])
 print("Procesos corriendo actualimente:", procesos)
+
+#Calculo el % de Memoria utilizado.
+memory =int(int(memory[8]) *100 / int(memory[7]))
+print("Porcentaje de Memoria en utlizacion:", memory, "%")
+
+#Comparo la Memoria en uso y si super el 80% lanzo una alerta
+if memory > int(os.environ.get("MONIT_MEM_LIMIT")):
+   print("Alerta Memoria supera el 80%!!)")
+else:
+    print("estamos bien de Memoria!!")
