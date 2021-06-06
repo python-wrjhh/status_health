@@ -4,6 +4,7 @@
 Un cambio desde main
 El objetivo de la primer fase es elaborar un pequeño script que haga algunas verificaciones de la salud del equipo local y si alguno de los criterios establecidos no se cumple mandar una alerta por mail.
 
+Agrego otro cambio
 Este ejercicio tiene como objectivo aprender:
 
 1. Aprender a interactuar con el sistema operativo desde python.
