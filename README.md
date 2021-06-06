@@ -1,7 +1,7 @@
 # Status Health
 
 ## Fase1
-
+Un cambio desde main
 El objetivo de la primer fase es elaborar un pequeño script que haga algunas verificaciones de la salud del equipo local y si alguno de los criterios establecidos no se cumple mandar una alerta por mail.
 
 Este ejercicio tiene como objectivo aprender:
