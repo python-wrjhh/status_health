@@ -45,8 +45,19 @@ Si tengo 2 CPUs, y el load average es igual a **2.4** eso deberia ser una alerta
 Opcional:
 - Dejar el script corriendo en crontab.
 
+## Coding style
+
+Cada lenguaje de programacion tiene un coding style distinto.
+Python utiliza lo que se llama [PEP8](https://www.python.org/dev/peps/pep-0008/)
+
+Vamos a usar los siguientes documentos de referencia:
+- https://docs.python-guide.org/writing/style/
+- https://realpython.com/python-pep8/
+
 ## Changelog
 - Se agrega un ejemplo de como usar un pipe con subprocess.
+- Se agregaron funciones para chequear
+- Se agrega informacion sobre pep8
 
 
 ## Referencias, guias, etc
