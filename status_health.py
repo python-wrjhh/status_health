@@ -8,6 +8,8 @@
 import subprocess
 #funcion que utilizare para obterner el memory space, y la cant de cpu, que me devuelve como resultados una lista
 def get_data(com1, com2):
+    # revisar si en vez de dos parametros
+    # puedo utilizar uno y hacer com1.split()
     data_temp = subprocess.run([com1,com2], capture_output=True, encoding='utf-8')
     data = data_temp.stdout.split()
     #print(data)
@@ -44,9 +46,19 @@ load_avg=single_command(com1="uptime")
 space=get_space(com1="df",com2="-h",com3="/var")
 procesos=get_num_proc(com1="ps",com2="-ef")
 
-print("Nombre de Host:", host[0])
-print("Memoria Disponible en el Sistema =", memory[9])
-print("CPUs =", cpu[0]) ##--> pero ese es un string! Debere pasarlo a int?
-print("Load Average: ", load_avg[8])
-print("Esptado /var: Usado :", space[9], "Disponible: ", space[10])
-print("Procesos corriendo actualimente:", procesos)
+
+# Ejemplo de como generalizar la llamada de
+# la misma funcion con parametros distintos:
+# valores = []
+# for x in [("free", "-thm"), ("getconf", "_NPROCESSORS_ONLN")]:
+#     resultado = get_data(x[0], x[1])
+#     valores.append(valores)
+# 
+
+#print("Nombre de Host:", host[0])
+#print("Memoria Disponible en el Sistema =", memory[9])
+#print("CPUs =", cpu[0]) ##--> pero ese es un string! Debere pasarlo a int?
+#print("Load Average: ", load_avg[8])
+#print("Esptado /var: Usado :", space[9], "Disponible: ", space[10])
+#print("Procesos corriendo actualimente:", procesos)
+print("El nombre de status_health modulo es: ", __name__)
